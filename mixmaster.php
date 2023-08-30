@@ -10,7 +10,7 @@
 
   gtag('config', 'G-RNBEEP96R5');
 </script>
-<meta charset=utf-8>
+<meta charset="utf-8">
 <title>Mixagem & Masterização</title>
 <link href=favicon_io/favicon-16x16.png rel=icon>
 <link href=estilo.css rel=stylesheet>
@@ -18,7 +18,9 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-240370538-2");</script>
 <meta name=lomadee-verification content=23139291 />
 </head>
+
 <?php require_once "controllerUserData.php"; ?>
+
 <?php 
 $email = $_SESSION['email'];
 $senha = $_SESSION['senha'];
@@ -41,7 +43,8 @@ if($email != false && $senha != false){
     header('Location: login-user.php');
 }
 ?>
-<div clas="session">
+
+<div class="session">
 <b>Olá, <?php echo $fetch_info['nome'];?></b>
 <button type="button" class="w3-button"><a href="logout-user.php">Sair</a></button>
 </div>
@@ -152,7 +155,11 @@ Mande seus arquivos de áudio (em pistas) para mixagem e masterização.</p>
 
 <?php
 
-    if(isset($_POST['submit'])){
+    session_start()    
+
+    $arquivo = $_FILES['arquivo'];
+
+    if(isset($_FILE['arquivo'])){
 
     if($arquivo['error'])
        die("Falha ao enviar arquivo!");
@@ -167,8 +174,14 @@ Mande seus arquivos de áudio (em pistas) para mixagem e masterização.</p>
 
           $path = $pasta . $novonomedoarquivo . "." . $extensao;
           $deu_ certo = move_uploaded_file($arquivo['tmp_name'], $path);
-          if($deu_certo){
-              $result = mysqli_query($con, "INSERT INTO mixagem(nome, email, telefone, arquivo, path) VALUES ('nome', 'email', 'telefone', '$nomedoarquivo', '$path')") or die($mysqli->error);
+          if($deu_certo)
+          {
+              $nome = $_POST['nome'];
+              $email = $_POST['email'];
+              $telefone = $_POST['telefone'];
+              $path = $_POST['path'];
+
+              $result = mysqli_query($con, "INSERT INTO mixagem(nome, email, telefone, arquivo, path) VALUES ('$nome', '$email', '$telefone', '$nomedoarquivo', '$path')") or die($mysqli->error);
               echo "<p>Arquivo enviado com sucesso</p>";
     }  else
               echo "<p>Falha ao enviar arquivo</p>";
@@ -190,7 +203,7 @@ Mande seus arquivos de áudio (em pistas) para mixagem e masterização.</p>
         <label>Arquivos de Áudio: </label>
         <input type="file" name="arquivo" multiple="multiple" accept=".mp3, .wav"><br><br>
 
-        <input type="submit" value="Enviar"><br><br>
+        <input type="submit" name="arquivo" value="Enviar"><br><br>
     </form>
 
 </article><article></article><!-- BEGIN -->
