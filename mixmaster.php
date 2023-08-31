@@ -155,11 +155,11 @@ Mande seus arquivos de áudio (em pistas) para mixagem e masterização.</p>
 
 <?php
 
-    session_start()    
+    session_start();    
 
     $arquivo = $_FILES['arquivo'];
 
-    if(isset($_FILE['arquivo'])){
+    if(isset($_FILES['arquivo'])){
 
     if($arquivo['error'])
        die("Falha ao enviar arquivo!");
@@ -173,7 +173,7 @@ Mande seus arquivos de áudio (em pistas) para mixagem e masterização.</p>
           die("Tipo de arquivo inválido!");
 
           $path = $pasta . $novonomedoarquivo . "." . $extensao;
-          $deu_ certo = move_uploaded_file($arquivo['tmp_name'], $path);
+          $deu_certo = move_uploaded_file($arquivo['tmp_name'], $path);
           if($deu_certo)
           {
               $nome = $_POST['nome'];
