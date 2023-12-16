@@ -11,6 +11,7 @@
   gtag('config', 'G-RNBEEP96R5');
 </script>
 <meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Playlists</title>
 <link href=favicon_io/favicon-16x16.png rel=icon>
 <link href=estilo.css rel=stylesheet>
@@ -18,7 +19,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-240370538-2");</script>
 <meta name=lomadee-verification content=23139291 />
 </head>
-<?php require_once "controllerUserData.php"; ?>
+<?php require_once "controlleruserdata.php"; ?>
 <?php 
 $email = $_SESSION['email'];
 $senha = $_SESSION['senha'];

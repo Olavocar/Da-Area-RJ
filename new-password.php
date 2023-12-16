@@ -1,4 +1,4 @@
-<?php require_once "controllerUserData.php"; ?>
+<?php require_once "controlleruserdata.php"; ?>
 <?php 
 $email = $_SESSION['email'];
 if($email == false){
@@ -9,12 +9,12 @@ if($email == false){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a New Password</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
     <link href=favicon_io/favicon-16x16.png rel=icon>
 </head>
-<body>
+<body id="bg">
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
@@ -43,9 +43,11 @@ if($email == false){
                     }
                     ?>
                     <div class="form-group">
+                        Crie uma nova senha
                         <input class="form-control" type="password" name="password" placeholder="Create new password" required>
                     </div>
                     <div class="form-group">
+                        Confirme sua nova senha
                         <input class="form-control" type="password" name="cpassword" placeholder="Confirm your password" required>
                     </div>
                     <div class="form-group">

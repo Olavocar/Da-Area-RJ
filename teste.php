@@ -14,7 +14,7 @@
           die("Tipo de arquivo inválido!");
 
           $path = $pasta . $novonomedoarquivo . "." . $extensao;
-          $deu_ certo = move_uploaded_file($arquivo['tmp_name'], $path);
+          $deu_certo = move_uploaded_file($arquivo['tmp_name'], $path);
           if($deu_certo){
               $result = mysqli_query($con, "INSERT INTO mixagem(nome, email, telefone, arquivo, path) VALUES ('nome', 'email', 'telefone', '$nomedoarquivo', '$path')") or die($mysqli->error);
               echo "<p>Arquivo enviado com sucesso</p>";
